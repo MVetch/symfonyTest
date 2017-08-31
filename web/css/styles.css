@@ -1,0 +1,76 @@
+.book-item {
+	display: inline-block;
+	border: 7px;
+	border-style: ridge;
+	border-color: brown;
+	margin-right: 5px; 
+	margin-bottom: 7px;
+	background-color: #ddd; 
+	padding: 5px;
+	position: relative;
+}
+
+.book-list {
+	text-align: center;
+}
+
+.book-image-holder, .book-image, .no-image {
+	width: 200px; 
+	height: 300px;
+	overflow: hidden;
+}
+
+.book-image-holder {
+	padding: 10px;
+	margin: auto;
+}
+
+.no-image {
+	background: white url('/images/noCover.jpg') no-repeat center;
+}
+
+.book-name {
+	text-align: center;
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+.book-author {
+	text-align: center;
+	font-size: 14pt;
+}
+
+.book-read {
+	text-align: center;
+	font-size: 12pt;
+}
+
+.new-button {
+	padding: 5px 10px;
+	margin-bottom: 7px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #f89d0e;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+}
+
+.edit-button {
+	padding: 5px 15px;
+	margin-bottom: 7px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #f44336;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px #999;
+    width: auto;
+    height: auto;
+}

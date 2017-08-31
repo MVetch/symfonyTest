@@ -1,0 +1,36 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+newBook:
+    path: /new
+    defaults: { _controller: AppBundle:Book:create }
+showBook:
+    path: /show/{bookId}
+    defaults: { _controller: AppBundle:Book:show }
+    requirements:
+        bookId: \d+
+listBook:
+    path: /list
+    defaults: { _controller: AppBundle:Book:list }
+
+editBook:
+    path: /edit/{bookId}
+    defaults: { _controller: AppBundle:Book:edit }
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+deleteFile:
+    path: /deleteFile/{bookId}
+    defaults: { _controller: AppBundle:Book:deleteFile }
+
+deleteCover:
+    path: /deleteCover/{bookId}
+    defaults: { _controller: AppBundle:Book:deleteCover }
+
+deleteBook:
+    path: /deleteBook/{bookId}
+    defaults: { _controller: AppBundle:Book:delete }
+
+_api_v1:
+    resource: routes/api/v1/book.yml

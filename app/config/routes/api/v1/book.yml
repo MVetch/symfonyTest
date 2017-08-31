@@ -1,0 +1,18 @@
+api_v1_list:
+    path: /api/v1/books
+    defaults:  { _controller: AppBundle:API/v1/BookApi:listBooks, _format: json }
+    requirements:
+        _method: GET
+        _format: 'json'
+api_v1_list:
+    path: /api/v1/books/add
+    defaults:  { _controller: AppBundle:API/v1/BookApi:newBook, _format: json }
+    requirements:
+        _method: POST
+        _format: 'json'
+api_v1_list:
+    path: /api/v1/books/{id}/edit
+    defaults:  { _controller: AppBundle:API/v1/BookApi:editBooks, _format: json }
+    requirements:
+        _method: POST
+        _format: 'json'

@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ form_start(form) }}
+    <table>
+        <tr>
+            <td>{{ form_label(form.name) }}</td>
+            <td>{{ form_widget(form.name) }}</td>
+            <td>{{ form_errors(form.name) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.author) }}</td>
+            <td>{{ form_widget(form.author) }}</td>
+            <td>{{ form_errors(form.author) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.dateRead) }}</td>
+            <td>{{ form_widget(form.dateRead) }}</td>
+            <td>{{ form_errors(form.dateRead) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.cover) }}</td>
+            <td>{{ form_widget(form.cover) }}</td>
+            <td>{{ form_errors(form.cover) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.file) }}</td>
+            <td>{{ form_widget(form.file) }}</td>
+            <td>{{ form_errors(form.file) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.downloadable) }}</td>
+            <td>{{ form_widget(form.downloadable) }}</td>
+            <td>{{ form_errors(form.downloadable) }}</td>
+        </tr>
+    </table> 
+    <div>
+        {{ form_widget(form.save) }}
+    </div>
+{{ form_end(form) }}
+{% endblock %}

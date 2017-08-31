@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
+        http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+
+    <class name="FOS\UserBundle\Model\User">
+
+        <property name="username">
+            <constraint name="NotBlank">
+                <option name="message">Введите логин</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>Profile</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">Логин должен быть длиннее 2 символов</option>
+                <option name="max">180</option>
+                <option name="maxMessage">Логин должен быть короче 180 символов</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>Profile</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="email">
+            <constraint name="NotBlank">
+                <option name="message">Введите e-mail</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>Profile</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">e-mail должен быть длиннее 2 символов</option>
+                <option name="max">180</option>
+                <option name="maxMessage">e-mail должен быть короче 180 символов</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>Profile</value>
+                </option>
+            </constraint>
+            <constraint name="Email">
+                <option name="message">Неверный формат e-mail</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>Profile</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="plainPassword">
+            <constraint name="NotBlank">
+                <option name="message">Введите пароль</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>ResetPassword</value>
+                    <value>ChangePassword</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="max">4096</option>
+                <option name="minMessage">Пароль должен быть длиннее 2 символов</option>
+                <option name="groups">
+                    <value>Registration</value>
+                    <value>Profile</value>
+                    <value>ResetPassword</value>
+                    <value>ChangePassword</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="FOS\UserBundle\Model\Group">
+        <property name="name">
+            <constraint name="NotBlank">
+                <option name="message">Введите имя</option>
+                <option name="groups">Registration</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">Имя должен быть длиннее 2 символов</option>
+                <option name="max">180</option>
+                <option name="maxMessage">Имя должен быть короче 180 символов</option>
+                <option name="groups">Registration</option>
+            </constraint>
+        </property>
+    </class>
+
+</constraint-mapping>

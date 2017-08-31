@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}" />
+{% endblock %}
+
+{% block body %}
+    <div class="book-list">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <div>
+                <input type="button" value="Новая" onclick="window.location.href='/new'" class="new-button">
+            </div>
+        {% endif %}
+        {% for book in books %}
+            <div class = "book-item">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <div class="edit-button" style="position:absolute; right:0; top:0" onclick="window.location.href='/deleteBook/{{book.id}}'">X</div>
+                {% endif %}
+                <div class="book-name"><a href="/show/{{book.id}}">{{book.name}}</a></div>
+                <div class="book-author">{{book.author}}</div>
+                <div class="book-read">(прочитана {{book.dateRead|date('d.m.Y')}})</div>
+                <div class = "book-image-holder">
+                    {% if book.cover is not empty %}
+                        {{(book.id//books_per_folder ~ '/' ~ book.cover)|resize(200,300)}}
+                    {% else %}
+                        <div class="no-image"></div>
+                    {% endif %}
+                </div>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <div>
+                        <input type="button" value="Редактировать" onclick="window.location.href='/edit/{{book.id}}'" class="edit-button">
+                    </div>
+                    <div>
+                        {% if book.downloadable and book.file is not empty %}
+
+                            <a href="{{ asset(book_directory ~ book.id//books_per_folder ~ '/' ~ book.file) }}">Скачать книгу (PDF)</a>
+                        {% else %}
+                            Книгу скачать нельзя
+                        {% endif %}
+                    </div>
+                {% endif %}
+                
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
